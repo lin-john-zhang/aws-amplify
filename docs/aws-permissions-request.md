@@ -313,17 +313,140 @@ If administrative access is not permitted, attach these specific policies:
 }
 ```
 
+#### Option 3: Minimal Permissions (Exploration-focused)
+For basic Amplify backend exploration with minimal access:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "amplify:CreateApp",
+                "amplify:CreateBackendEnvironment",
+                "amplify:DeleteApp",
+                "amplify:DeleteBackendEnvironment",
+                "amplify:GetApp",
+                "amplify:GetBackendEnvironment",
+                "amplify:ListApps",
+                "amplify:ListBackendEnvironments",
+                "amplify:UpdateBackendEnvironment",
+                
+                "appsync:CreateApi",
+                "appsync:CreateApiKey",
+                "appsync:CreateDataSource",
+                "appsync:CreateResolver",
+                "appsync:DeleteApi",
+                "appsync:DeleteApiKey",
+                "appsync:DeleteDataSource",
+                "appsync:DeleteResolver",
+                "appsync:GetApi",
+                "appsync:GetApiKey",
+                "appsync:GetDataSource",
+                "appsync:GetResolver",
+                "appsync:GetIntrospectionSchema",
+                "appsync:GraphQL",
+                "appsync:ListApiKeys",
+                "appsync:ListApis",
+                "appsync:ListDataSources",
+                "appsync:ListResolvers",
+                "appsync:StartSchemaCreation",
+                "appsync:UpdateApi",
+                "appsync:UpdateDataSource",
+                "appsync:UpdateResolver",
+                
+                "dynamodb:CreateTable",
+                "dynamodb:DeleteTable",
+                "dynamodb:DescribeTable",
+                "dynamodb:GetItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:ListTables",
+                "dynamodb:UpdateTable",
+                
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:UpdateStack",
+                "cloudformation:ListStacks",
+                
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:GetRole",
+                "iam:PassRole",
+                "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:PutRolePolicy",
+                "iam:DeleteRolePolicy",
+                
+                "logs:CreateLogGroup",
+                "logs:DeleteLogGroup",
+                "logs:DescribeLogGroups",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+**What this minimal set allows:**
+- ✅ Create and manage Amplify apps and backend environments
+- ✅ Set up GraphQL API with AppSync
+- ✅ Create and manage DynamoDB tables for data storage
+- ✅ Deploy basic CloudFormation stacks
+- ✅ Create necessary IAM roles for services
+- ✅ Basic logging capabilities
+
+**What this excludes:**
+- ❌ S3 operations (no file storage)
+- ❌ Lambda functions (no custom serverless logic)
+- ❌ Cognito authentication (no user management)
+- ❌ Advanced monitoring and alerting
+- ❌ API Gateway REST APIs
+- ❌ Advanced CloudFormation features
+
+**Perfect for exploring:**
+- Data modeling with GraphQL
+- Real-time subscriptions
+- Basic CRUD operations
+- Infrastructure as Code concepts
+- Amplify Gen 2 workflow
+
+## Permission Options Summary
+
+### Option 1: AdministratorAccess
+- **Best for**: Quick POC setup, no restrictions
+- **Risk**: High privileges
+- **Setup time**: Fastest
+
+### Option 2: Granular Permissions (Full)
+- **Best for**: Production-like environment with full features
+- **Risk**: Medium privileges, specific to AWS services
+- **Setup time**: Medium
+
+### Option 3: Minimal Permissions
+- **Best for**: Learning and exploration with core features only
+- **Risk**: Low privileges, limited scope
+- **Setup time**: Fastest for IT approval
+
 ## Specific Permission Justifications
 
-### AWS Amplify (`amplify:*`)
+### AWS Amplify (Core Actions)
 - Create and manage Amplify applications
-- Deploy frontend and backend resources
-- Configure CI/CD pipelines
+- Deploy backend resources
+- Manage backend environments
 
-### Amazon DynamoDB (`dynamodb:*`)
+### Amazon DynamoDB (Data Storage)
 - Create tables for todo items
-- Configure indexes and streams
-- Manage table settings and scaling
+- Basic CRUD operations
+- Table management
 
 ### AWS AppSync (`appsync:*`)
 - Create GraphQL API endpoints
