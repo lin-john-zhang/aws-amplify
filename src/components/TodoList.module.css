@@ -1,7 +1,11 @@
+.container {
+  margin-top: 1rem;
+}
+
 .list {
   list-style: none;
   padding: 0;
-  margin: 1rem 0 0 0;
+  margin: 0;
   background: #fafafa;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -10,5 +14,124 @@
 .empty {
   color: #888;
   text-align: center;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 6px;
   margin-top: 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  background: #ffebee;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.errorMessage {
+  color: #d32f2f;
+  margin-bottom: 1rem;
+}
+
+.retryButton {
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.retryButton:hover {
+  background: #1565c0;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1rem;
+  background: #f0f0f0;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.filterTab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.filterTab:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.filterTab.active {
+  background: #1976d2;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.refreshButton {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.refreshButton:hover {
+  background: #e0e0e0;
+  border-color: #ccc;
+}
+
+.summary {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  margin-top: 1rem;
+}
+
+.remaining {
+  color: #1976d2;
+  font-weight: 500;
 } 
