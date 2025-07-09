@@ -1,0 +1,172 @@
+.container {
+  margin-bottom: 1rem;
+}
+
+.selector {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+.trigger:hover {
+  border-color: #1976d2;
+  background: #f8f9ff;
+}
+
+.trigger:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.currentMode {
+  flex: 1;
+  text-align: left;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 4px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: left;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.option:last-child {
+  border-bottom: none;
+}
+
+.option:hover:not(.disabled) {
+  background: #f8f9ff;
+}
+
+.option.active {
+  background: #e3f2fd;
+  border-color: #1976d2;
+}
+
+.option.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: #f8f9fa;
+}
+
+.optionContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.optionLabel {
+  font-weight: 500;
+  color: #333;
+}
+
+.optionDescription {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.2;
+}
+
+.requiresSetup {
+  font-size: 0.75rem;
+  color: #f57c00;
+  font-style: italic;
+}
+
+.checkmark {
+  color: #1976d2;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.info {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoLabel {
+  font-weight: 500;
+}
+
+.infoValue {
+  color: #1976d2;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .trigger {
+    min-width: 160px;
+    font-size: 0.85rem;
+  }
+  
+  .option {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .optionLabel {
+    font-size: 0.85rem;
+  }
+  
+  .optionDescription {
+    font-size: 0.75rem;
+  }
+}

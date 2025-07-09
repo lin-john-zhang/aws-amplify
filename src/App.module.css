@@ -9,12 +9,19 @@
 
 .header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding: 2rem 0;
   background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
   color: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(25, 118, 210, 0.3);
+}
+
+.controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -66,6 +73,10 @@
   
   .subtitle {
     font-size: 1rem;
+  }
+  
+  .controls {
+    margin-bottom: 1rem;
   }
   
   .main {

@@ -2,6 +2,8 @@ import React from 'react';
 import { useTodos } from './hooks/useTodos';
 import AddTodo from './components/AddTodo';
 import TodoList from './components/TodoList';
+import DataModeSelector from './components/DataModeSelector';
+import { DATA_MODES } from './config/dataModes';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
@@ -9,11 +11,15 @@ const App: React.FC = () => {
     todos,
     loading,
     error,
+    currentMode,
     addTodo,
     toggleTodo,
     deleteTodo,
-    refreshTodos
+    refreshTodos,
+    changeMode
   } = useTodos();
+
+  const currentModeConfig = DATA_MODES[currentMode];
 
   return (
     <div className={styles.container}>
@@ -21,6 +27,13 @@ const App: React.FC = () => {
         <h1 className={styles.title}>📝 To-Do List</h1>
         <p className={styles.subtitle}>Manage your tasks efficiently</p>
       </header>
+      
+      <div className={styles.controls}>
+        <DataModeSelector 
+          currentMode={currentMode}
+          onModeChange={changeMode}
+        />
+      </div>
       
       <main className={styles.main}>
         <AddTodo onAdd={addTodo} />
@@ -36,10 +49,10 @@ const App: React.FC = () => {
       
       <footer className={styles.footer}>
         <p>
-          💡 This app uses localStorage for data persistence. 
+          💡 Currently using: {currentModeConfig.label}
           {' '}
           <span className={styles.highlight}>
-            Ready to connect to AWS Amplify backend!
+            {currentModeConfig.description}
           </span>
         </p>
       </footer>

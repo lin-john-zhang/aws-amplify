@@ -1,22 +1,26 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Todo } from '../types';
 import { todoService } from '../lib/todoService';
+import { DataMode } from '../config/dataModes';
 
 interface UseTodosReturn {
   todos: Todo[];
   loading: boolean;
   error: string | null;
+  currentMode: DataMode;
   addTodo: (title: string) => Promise<void>;
   updateTodo: (id: string, updates: Partial<Omit<Todo, 'id'>>) => Promise<void>;
   deleteTodo: (id: string) => Promise<void>;
   toggleTodo: (id: string) => Promise<void>;
   refreshTodos: () => Promise<void>;
+  changeMode: (mode: DataMode) => Promise<void>;
 }
 
 export const useTodos = (): UseTodosReturn => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [currentMode, setCurrentMode] = useState<DataMode>(() => todoService.getCurrentMode());
 
   // Load todos from storage/backend
   const loadTodos = useCallback(async () => {
@@ -31,6 +35,20 @@ export const useTodos = (): UseTodosReturn => {
       setLoading(false);
     }
   }, []);
+
+  // Change data mode
+  const changeMode = useCallback(async (mode: DataMode) => {
+    try {
+      setError(null);
+      todoService.setDataMode(mode);
+      setCurrentMode(mode);
+      // Reload todos from the new data source
+      await loadTodos();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to change data mode');
+      throw err;
+    }
+  }, [loadTodos]);
 
   // Add a new todo
   const addTodo = useCallback(async (title: string) => {
@@ -98,10 +116,12 @@ export const useTodos = (): UseTodosReturn => {
     todos,
     loading,
     error,
+    currentMode,
     addTodo,
     updateTodo,
     deleteTodo,
     toggleTodo,
-    refreshTodos
+    refreshTodos,
+    changeMode
   };
 };
