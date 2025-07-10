@@ -3,25 +3,6 @@
 
 import { Todo } from '../types';
 
-// Type definitions for GraphQL responses
-interface GraphQLResponse<T> {
-  data: T;
-  errors?: any[];
-}
-
-interface ListTodosResponse {
-  listTodos: {
-    items: Todo[];
-  };
-}
-
-interface TodoResponse {
-  getTodo?: Todo;
-  createTodo?: Todo;
-  updateTodo?: Todo;
-  deleteTodo?: { id: string };
-}
-
 // Mock implementation that simulates GraphQL API
 // Replace with actual GraphQL client calls when AWS backend is ready
 export const todoAPI = {

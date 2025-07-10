@@ -1,0 +1,61 @@
+# Source files
+src/
+public/
+amplify/
+
+# Development files
+.gitignore
+.env*
+*.md
+!README.md
+
+# Testing
+coverage/
+.nyc_output/
+__tests__/
+*.test.js
+*.test.ts
+*.test.tsx
+*.spec.js
+*.spec.ts
+*.spec.tsx
+
+# Development dependencies
+.eslintrc*
+.prettierrc*
+tsconfig.json
+jest.config.*
+webpack.config.*
+rollup.config.*
+vite.config.*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+.tmp/
+.temp/
+*.tmp
+*.temp
+
+# AWS/Amplify files
+amplify_outputs.json
+aws-exports.js
+.amplifyrc
+amplify/mock-data/
+amplify/.config/
+amplify/team-provider-info.json
+
+# Build artifacts (keep only built dist files)
+node_modules/

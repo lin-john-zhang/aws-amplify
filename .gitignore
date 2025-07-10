@@ -137,3 +137,64 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# AWS Amplify
+amplify/mock-data/
+amplify/mock-api-resources.json
+amplify/.config/
+amplify/team-provider-info.json
+amplify/backend/awscloudformation/
+amplify/cli.json
+amplify/backend/.temp/
+amplify-meta.json
+amplify-cloudformation-templates/
+.amplifyrc
+# amplify_outputs.json (keep placeholder, ignore real config)
+amplify_outputs.json.*
+aws-exports.js
+src/aws-exports.js
+src/amplify_outputs.json
+
+# CDK
+cdk.out/
+.cdk.staging/
+
+# Local development
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# React build files
+build/
+dist/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Backup files
+*.bak
+*.backup
+
+# Environment-specific configs
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

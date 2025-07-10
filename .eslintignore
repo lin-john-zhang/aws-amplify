@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+build/
+dist/
+*.tsbuildinfo
+
+# Generated files
+src/aws-exports.js
+src/amplify_outputs.json
+amplify_outputs.json
+aws-exports.js
+
+# Coverage reports
+coverage/
+
+# CDK output
+cdk.out/
+
+# Amplify generated
+amplify/mock-data/
+amplify/backend/awscloudformation/
+amplify/.config/
+
+# Environment files
+.env*
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

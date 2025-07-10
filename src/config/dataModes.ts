@@ -25,8 +25,8 @@ export const DATA_MODES: Record<DataMode, DataModeConfig> = {
     mode: 'aws',
     label: '☁️ AWS Amplify',
     description: 'Connects to AWS DynamoDB via GraphQL',
-    available: false,
-    requiresSetup: 'AWS credentials required',
+    available: true,
+    requiresSetup: 'Backend deployment required',
   },
 };
 
